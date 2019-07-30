@@ -1,0 +1,29 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <span id="span"></span><br>
+        <a href="#" id="start">Start</a><br>
+        <a href="#" id="stop">Stop</a>
+        <script>
+            let handle;
+            let count = 0;
+            let timeOutInterval = (timeOutInMills = 1) => {
+                handle = setInterval(() => {
+                    document.querySelector('span').innerHTML = ++count;
+                }, timeOutInMills*1000);
+            }
+
+            document.querySelector('#start').addEventListener('click', function(){
+                timeOutInterval();
+            });
+
+            document.querySelector('#stop').addEventListener('click', function(){
+                count = 0;
+                document.querySelector('span').innerHTML = count;
+                clearInterval(handle);
+            });
+        </script>
+    </body>
+</html>
